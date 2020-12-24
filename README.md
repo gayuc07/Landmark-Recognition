@@ -40,5 +40,9 @@ As we have one input feature variable, we couldn’t able to hyper tune the para
 
 - Model_Function.py – This File contains model functions used for this project. It takes the train set feature and labels, fit the model and returns the predicted label set.
 
+### Model Comparison
+
+
+
 
 
