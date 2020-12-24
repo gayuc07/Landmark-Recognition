@@ -18,6 +18,8 @@ In order to capture the typical appearance of an image via a collection of image
 
 Since the dataset is highly imbalanced, performing data pre-processing needs to be considered before training the model. The dataset also needs to be cleaned to find any broken url (analyzing the image). The dataset is created by crowdsourcing the landmark available online. Each image might have different pixel size; hence these images need to be resized to one uniform pixel size for analysis and training. 
 
+![Freq plot](https://github.com/gayuc07/Landmark-Recognition/blob/main/Images/Freq_Plot.JPG)
+
 ## Algorithm Used
 
 In this project, we have used HOG classifier for feature extraction and created comparative study how dataset reacts to various classifier like Logistic Regression, SVM, Naïve Bayes, KNN, Random Forest, Decision Tree and ensemble - Voting Classifier.
@@ -41,6 +43,44 @@ As we have one input feature variable, we couldn’t able to hyper tune the para
 - Model_Function.py – This File contains model functions used for this project. It takes the train set feature and labels, fit the model and returns the predicted label set.
 
 ### Model Comparison
+
+![Accuracy](https://github.com/gayuc07/Landmark-Recognition/blob/main/Images/acc.JPG)
+
+From Accuracy Score and Kappa Score, we could say Random forest gives better accuracy rate and kappa value also falls under Fair agreement region, followed by Ensemble and Logistic Regression. SVM model has lowest accuracy and kappa score, hence, it doesn’t suit for given dataset.
+
+![Evaluation](https://github.com/gayuc07/Landmark-Recognition/blob/main/Images/model_eval.JPG)
+
+### Cross Validation Score
+
+We reconfirm our result, we performed 10-fold cross-validation on trained set. Please find below result for the models.
+
+![cross validation](https://github.com/gayuc07/Landmark-Recognition/blob/main/Images/cv.JPG)
+
+The cross-validation score is similar, we have Random forest, logistic regression with better score and SVM models has least value.
+
+## Conclusion
+
+Landmark recognition model is built to classify top 10 sampled landmark id of google dataset. This project explored the possibility of building model with various machine learning algorithm. From comparative study, we could see Random Forest algorithm works best for given dataset followed by logistic Regression. In terms of ensemble model, Random forest with nonlinear SVM gives better classification Model. SVM model doesn’t suit for our dataset. As dataset is highly imbalance, its hard to find optimum boundary using SVM. Thus, random forest well suited for our landmark recognition data. However, Accuracy achieved is 68%, which is not great. As dataset is huge and imbalance, if we increase class scalability, these algorithms may not work best for recognizing landmark. In such cases we can use neural network may works better. Also, many classes have least datapoints, if we get more annotated images, prediction percentage may increase further.
+
+## References
+
+- Announcing Google-Landmarks-v2: An Improved Dataset for Landmark Recognition & Retrieval (2019, September),
+Retrieved from: https://ai.googleblog.com/2019/05/announcing-google-landmarks-v2-improved.html
+
+- The Common Visual Data Foundation(2019, September), Google Landmarks Dataset v2,
+Retrieved from: https://www.kaggle.com/c/landmark-recognition-2019
+
+- Y. Li, D. J. Crandal and D. P. Huttenlocher, Landmark Classification in Large-scale Image Collections,
+Retrieved from: https://www.cs.cornell.edu/~yuli/papers/landmark.pdf
+
+- A. Crudge, W. Thomas and K. Zhu, Landmark Recognition Using Machine Learning,
+Retrieved from: http://cs229.stanford .edu/proj2014/Andrew%20Crudge, %20Will%20Thomas,%20Kaiyuan%20Zhu,%20Landmark%20Recognition%20Using%20Machine%20Learning.pdf
+
+- Y. Takeuchi, P. Gros, M. Hebert and K. Ikeuchi, Visual Learning for Landmark Recognition,
+Retrieved from: https://www.cs.cmu.edu/~takeuchi/iuw97/iuw97.html https://www.Analyticsvidhya.com/blog/2019/09/feature-engineering-images-introduction-hog-feature-descriptor/
+
+- HOG Classifier Feature Engineering for Images: A Valuable Introduction to the HOG Feature Descriptor
+Retrieved from:https://www.analyticsvidhya.com/blog/2019/09/feature-engineering-images-introduction-hog-feature-descriptor/
 
 
 
